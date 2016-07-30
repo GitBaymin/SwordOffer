@@ -1,5 +1,9 @@
 package com.baymin._20_;
-
+/**
+ * ²âÊÔ
+ * @author Baymin
+ * @date 2016Äê7ÔÂ30ÈÕ
+ */
 public class MatrixClockwiseTest {
 
 	public static void main(String[] args) {
