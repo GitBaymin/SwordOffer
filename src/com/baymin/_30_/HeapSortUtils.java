@@ -24,6 +24,25 @@ public class HeapSortUtils {
 		nums[i] = temp;
 	}
 	/**
+	 * 递归实现数组元素位置的调整
+	 * @param nums
+	 * @param i
+	 * @param length
+	 */
+	public static void heapAdjustRecursion(int[] nums,int i, int length){
+		int left = 2*i+1;
+		int right = 2*i+2;
+		int temp = i;
+		if(left<length && nums[left]>nums[temp])
+			temp = left;
+		if(right<length && nums[right]>nums[temp])
+			temp = right;
+		if(i!=temp){
+			swap(nums, i, temp);
+			heapAdjustRecursion(nums, temp, length);
+		}
+	}
+	/**
 	 * 交换数组中两个元素
 	 * @param nums
 	 * @param index1
@@ -46,6 +65,17 @@ public class HeapSortUtils {
 		}
 	}
 	/**
+	 * 使用递归方法构建最大堆
+	 * @param nums
+	 */
+	public static void buildMaxHeapRecursion(int[] nums){
+		if(nums==null)
+			return;
+		for (int i = (nums.length-1)/2; i >=0; i--) {
+			heapAdjustRecursion(nums, i, nums.length);
+		}
+	}
+	/**
 	 * 最大堆排序
 	 * @param nums
 	 */
@@ -55,6 +85,18 @@ public class HeapSortUtils {
 		for (int j = nums.length-1; j >=1; j--) {
 			swap(nums, 0, j);
 			heapAdjust(nums, 0, j-1);
+		}
+	}
+	/**
+	 * 递归实现最大堆排序
+	 * @param nums
+	 */
+	public static void maxHeapSortRecursion(int[] nums){
+		if(nums == null)
+			return;
+		for (int j = nums.length-1; j >=1; j--) {
+			swap(nums, 0, j);
+			heapAdjustRecursion(nums, 0, j);
 		}
 	}
 }
