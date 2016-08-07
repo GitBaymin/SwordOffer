@@ -7,11 +7,12 @@ package com.baymin._39_;
 public class Test {
 
 	public static void main(String[] args) {
-		int [] data = {1,2,3,4,5,6,7};
+		int [] data = {1,2,3,4,5,6};
 		BinaryTreeNode root = null;
 		root = BinaryTreeUtils.buildCompleteBT(root, data, 0);
 		BinaryTreeUtils.preOrder(root);
 		System.out.println("\n"+BinaryTreeUtils.treeDepth(root));
+		System.out.println(BinaryTreeUtils.isBalanced(root));
 	}
 
 }

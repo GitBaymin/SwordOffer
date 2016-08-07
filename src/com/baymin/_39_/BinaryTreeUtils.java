@@ -158,4 +158,31 @@ public class BinaryTreeUtils {
 		
 		return (left>right) ? (left+1):(right+1);
 	}
+	/**
+	 * 判断是不是平衡二叉树
+	 */
+	public static boolean isBalanced(BinaryTreeNode root, int depth){
+		if(root==null){
+			depth = 0;
+			return true;
+		}
+		int left = 0,right = 0;
+		if(isBalanced(root.left, left) && isBalanced(root.right, right)){
+			int diff = left-right;
+			if(diff<=1 && diff>=-1){
+				depth = 1+(left>right ? left:right);
+				return true;
+			}
+		}
+		return false;
+	}
+	/**
+	 * 判断是不是平衡二叉树
+	 * @param root
+	 * @return
+	 */
+	public static boolean isBalanced(BinaryTreeNode root) {
+		int depth = 0;
+		return isBalanced(root, depth);
+	}
 }
